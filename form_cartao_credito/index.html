@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;0,900;1,600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Cartão de credito</title>
+  </head>
+  <body>
+    <form>
+      <section id="credit-card">
+        <div class="front"></div>
+        <div class="back"></div>
+      </section>
+      <section class="inputs flex">
+        <div class="input-wrapper">
+          <label for="cc-number">Número do cartão</label>
+          <input type="text" id="cc-number" placeholder="**** **** **** ****" />
+        </div>
+        <div class="input-wrapper">
+          <label for="cc-holder">Nome do cartão</label>
+          <input
+            type="text"
+            id="cc-holder"
+            placeholder="Nome como está no cartão"
+          />
+        </div>
+        <div class="col-2 flex">
+          <div class="input-wrapper">
+            <label for="cc-validity">Validade</label>
+            <input type="text" id="cc-validity" placeholder="mm/aa" />
+          </div>
+          <div class="input-wrapper">
+            <label for="cc-cvv" class="flex help"
+              >CVV
+              <img src="./images/question.png" alt="Icone de ajuda" title="Esse número está geralmente atrás do seu cartão" />
+            </label>
+            <input type="text" id="cc-cvv" placeholder="***" />
+          </div>
+        </div>
+      </section>
+    </form>
+  </body>
+</html>

@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --brand-color: #9333ea;
+  --brand-color-light: #a855f7;
+  --gray-900: #111827;
+  --gray-800: #1f2937;
+  --gray-700: #374151;
+  --gray-600: #4b5563;
+  --gray-500: #9ca3af;
+  --gray-400: #d1d5db;
+  --gray-300: #e5e7eb;
+  --gray-200: #f3f4f6;
+  --gray-100: #f9fafb;
+
+  --status-success: #6ee7b7;
+  --status-error: #fb7185;
+  /*deixa o site com 10px em vez de 16px */
+  font-size: 62.5%;
+}
+
+body {
+  background: var(--gray-800);
+  color: var(--gray-200);
+}
+
+body,
+input,
+button {
+  font-size: 1.6rem;
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+form {
+  padding: 2.4rem;
+  max-width: 40rem;
+  margin: auto;
+}
+
+#credit-card {
+  width: 32.8rem;
+  height: 21.2rem;
+  margin: auto;
+  /* perspective substitui o position-relative, ajuda quando flipar o cartão */
+  perspective: 60rem;
+}
+
+#credit-card > div {
+  /* herda a autura e largura do #credit-card e ajuda na imagem em 3D */
+  width: inherit;
+  height: inherit;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+
+  /* a transição acontece da direita p esquerda ou da esquerda para direita */
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  /* deixar a imagem em 3D */
+  transform-style: preserve-3d;
+  backface-visibility: hidden; /*este esconde quem estiver por tras */
+}
+
+#credit-card .front {
+  background-image: url("./images/card_front.png");
+  background-repeat: no-repeat;
+
+  /* define quem fica atras e quem fica na frente */
+  transform: rotate(0);
+}
+
+#credit-card .back {
+  background-image: url("./images/card-back.png");
+  background-repeat: no-repeat;
+  transform: rotateY(-180deg);
+}
+
+/* quando hover ou click, muda a posição do cartão */
+#credit-card:active .front,
+#credit-card:hover .front {
+  transform: rotateY(-180deg);
+}
+
+#credit-card:active .back,
+#credit-card:hover .back {
+  transform: rotateY(0);
+}
+
+.flex {
+  display: flex;
+}
+
+.inputs {
+  margin-top: 4.8rem;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+label {
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--gray-300);
+}
+
+input {
+  color: var(--gray-200);
+  background: var(--gray-900);
+  padding: 1.2rem;
+  margin-top: 0.4rem;
+  border: 0.1rem solid var(--gray-700);
+  border-radius: 0.4rem;
+  width: 100%;
+  outline: none;
+}
+
+input:focus {
+  border: 0.15rem solid var(--brand-color);
+}
+
+.col-2 {
+  gap: 2.4rem;
+  align-items: center;
+}
+
+/* coloca o input de cvv em 30% do width da div .col-2*/
+.col-2 .input-wrapper:nth-child(2) {
+  flex-basis: 30%;
+}
